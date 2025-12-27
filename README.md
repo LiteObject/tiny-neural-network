@@ -4,7 +4,40 @@ A simple neural network implementation for learning basic patterns in Python.
 
 ## Overview
 
-This project demonstrates a basic single-layer neural network that uses sigmoid activation and backpropagation to learn and classify binary input patterns.
+This project implements a **perceptron** — the simplest form of a neural network, invented by Frank Rosenblatt in 1958. It uses sigmoid activation and backpropagation to learn and classify binary input patterns. This is the fundamental building block upon which all modern deep learning is built.
+
+## How It Works
+
+```mermaid
+flowchart LR
+    subgraph Inputs
+        I1((x₁))
+        I2((x₂))
+        I3((x₃))
+    end
+
+    subgraph Neuron["Neuron"]
+        SUM["∑ weighted sum"]
+        ACT["σ sigmoid"]
+    end
+
+    subgraph Output
+        O((output))
+    end
+
+    I1 -->|"w₁"| SUM
+    I2 -->|"w₂"| SUM
+    I3 -->|"w₃"| SUM
+    SUM --> ACT
+    ACT --> O
+```
+
+### Process
+
+1. **Forward Pass**: Each input is multiplied by its weight, summed together, and passed through the sigmoid function
+2. **Error Calculation**: Compare the prediction to the expected output
+3. **Backpropagation**: Adjust weights based on error × input × sigmoid gradient
+4. **Repeat**: Train over many iterations until weights converge
 
 ## Features
 
